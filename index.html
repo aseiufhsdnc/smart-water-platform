@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧水网与水火风光储多能互补调度平台</title>
+    <meta name="description" content="智慧水利与数字孪生课程单页展示平台">
+    <link rel="stylesheet" href="./css/platform.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  </head>
+  <body>
+    <nav class="site-nav">
+      <a class="brand" href="#hero">
+        <span class="brand-mark"></span>
+        <span>智慧水网课程展示平台</span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-label="切换导航">菜单</button>
+      <div class="nav-links" data-nav-menu>
+        <a href="#hero">首页</a>
+        <a href="#overview">平台概述</a>
+        <a href="#digital-water-map">数字水网</a>
+        <a href="#data-governance">数据核对</a>
+        <a href="#dispatch-monitor">调度监测</a>
+        <a href="#energy-complement">多能互补</a>
+        <a href="#scenario-forecast">四预场景</a>
+      </div>
+    </nav>
+
+    <main>
+      <section id="hero" class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-grid-bg"></div>
+        <div class="hero-water-lines">
+          <div class="water-line"></div>
+          <div class="water-line"></div>
+          <div class="water-line"></div>
+        </div>
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="kicker">Smart Water Conservancy · Digital Twin</p>
+            <h1>智慧水网与水火风光储多能互补调度平台</h1>
+            <p>以数字水网为底板，整合一张图、数据核对、调度监测、多能互补和四预场景。</p>
+            <div class="keyword-row" data-keywords></div>
+            <div class="hero-actions">
+              <a class="primary-action" href="#digital-water-map">进入一张图</a>
+              <a class="secondary-action" href="#scenario-forecast">查看四预推演</a>
+            </div>
+          </div>
+          <div class="metrics-grid" data-metrics></div>
+        </div>
+      </section>
+
+      <section id="overview" class="page-section">
+        <div class="container">
+          <div class="section-header">
+            <p class="kicker">Platform Overview</p>
+            <h2>平台概述与功能架构</h2>
+            <p>把 4 个成员的独立模块统一成“看、查、测、算、演”的展示链条。</p>
+          </div>
+          <div class="overview-grid" data-overview-cards></div>
+          <div class="architecture-strip" data-architecture></div>
+        </div>
+      </section>
+
+      <section id="digital-water-map" class="page-section">
+        <div class="container">
+          <div class="section-header">
+            <p class="kicker">Member 2 · Digital Water Map</p>
+            <h2>数字水网一张图与空间展示</h2>
+            <p>统一展示水库、泵站、闸门、监测断面、能源站点和风险对象，支持图层控制、空间检索与节点详情。</p>
+          </div>
+          <div class="map-workspace">
+            <aside class="panel control-panel">
+              <h3>图层控制</h3>
+              <div class="control-list" data-layer-controls></div>
+              <div class="filter-grid">
+                <label>对象类型<select data-type-filter></select></label>
+                <label>运行状态<select data-status-filter></select></label>
+              </div>
+              <div class="legend-row">
+                <span><i class="status-dot status-normal"></i>正常</span>
+                <span><i class="status-dot status-watch"></i>关注</span>
+                <span><i class="status-dot status-warning"></i>预警</span>
+                <span><i class="status-dot status-dispatching"></i>调度中</span>
+              </div>
+            </aside>
+
+            <section class="map-panel">
+              <div class="panel-heading">
+                <div><span>Water Network Topology</span><h3>水网对象空间拓扑</h3></div>
+                <b>看 · 查 · 测 · 演</b>
+              </div>
+              <svg viewBox="0 0 760 500" role="img" aria-label="数字水网一张图拓扑">
+                <defs>
+                  <linearGradient id="riverGradient" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#62e1ff"></stop>
+                    <stop offset="100%" stop-color="#1388ff"></stop>
+                  </linearGradient>
+                </defs>
+                <rect class="map-bg" x="0" y="0" width="760" height="500" rx="18"></rect>
+                <path class="basin-outline" d="M88 84 C182 22 329 42 425 90 C532 145 653 138 691 240 C730 344 625 428 482 456 C346 482 226 449 145 382 C54 306 18 164 88 84 Z"></path>
+                <path class="river-main" d="M130 100 C185 145 220 180 292 198 C360 215 416 226 475 266 C530 304 560 370 624 428"></path>
+                <path class="river-branch" d="M168 254 C226 268 266 303 322 350 C342 367 352 377 370 390"></path>
+                <path class="river-branch" d="M290 192 C324 158 382 130 505 160"></path>
+                <path class="river-branch" d="M442 236 C485 220 547 213 645 214"></path>
+                <path class="river-branch dashed" d="M370 390 C423 405 480 418 548 424"></path>
+                <path class="energy-link" d="M118 260 C226 234 334 216 442 236 C505 248 536 288 565 318"></path>
+                <path class="energy-link" d="M505 160 C530 224 535 322 548 424"></path>
+                <g class="area-labels">
+                  <text x="112" y="70">上游调蓄区</text>
+                  <text x="454" y="92">能源保障区</text>
+                  <text x="508" y="472">城区负荷区</text>
+                </g>
+                <g data-map-nodes></g>
+              </svg>
+            </section>
+
+            <aside class="panel detail-panel">
+              <h3>节点详情</h3>
+              <div data-water-detail></div>
+            </aside>
+          </div>
+          <div class="result-panel panel">
+            <div class="panel-heading">
+              <div><span>Spatial Search</span><h3>空间检索结果</h3></div>
+              <b data-water-count></b>
+            </div>
+            <div class="result-list" data-water-results></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="data-governance" class="page-section">
+        <div class="container">
+          <div class="section-header">
+            <p class="kicker">Member 3 · Data Governance</p>
+            <h2>数据核对与业务闭环</h2>
+            <p>借鉴数据核对、空间位置校核、三级审核、待办提醒和整改闭环。</p>
+          </div>
+          <div class="quality-grid" data-quality></div>
+          <div class="governance-grid">
+            <section class="panel">
+              <h3>多源感知工程数据核对列表</h3>
+              <table>
+                <thead><tr><th>工程对象</th><th>核对维度</th><th>当前状态</th><th>责任单位</th></tr></thead>
+                <tbody data-check-table></tbody>
+              </table>
+            </section>
+            <section class="panel">
+              <h3>数字孪生底板三级审核流</h3>
+              <div class="flow-row" data-audit-flow></div>
+              <h3>安全预警与整改闭环</h3>
+              <div class="flow-row green" data-rectify-flow></div>
+              <h3>实时待办与越限提醒</h3>
+              <ul class="todo-list" data-todos></ul>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section id="dispatch-monitor" class="page-section">
+        <div class="container">
+          <div class="section-header">
+            <p class="kicker">Member 3 · Dispatch Monitoring</p>
+            <h2>水资源调度监测</h2>
+            <p>展示库容变化、供需对比、调度前后效果和智能协同调度建议。</p>
+          </div>
+          <div class="dispatch-grid">
+            <div class="panel" data-reservoir-chart></div>
+            <div class="panel" data-supply-chart></div>
+          </div>
+          <div class="dispatch-grid bottom">
+            <section class="panel compare-grid" data-compare></section>
+            <section class="panel dispatch-radar-panel" data-dispatch-radar>
+              <h3>多目标联合调度前后综合效益评估</h3>
+              <div data-dispatch-radar-chart></div>
+            </section>
+            <section class="panel">
+              <h3>智能协同调度决策建议</h3>
+              <ul class="advice-list" data-advice></ul>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section id="energy-complement" class="page-section">
+        <div class="container">
+          <div class="section-header">
+            <p class="kicker">Member 4 · Multi-Energy Complement</p>
+            <h2>水火风光储多能互补</h2>
+            <p>展示水电调峰、火电兜底、风光优先消纳和储能削峰填谷的协同关系。</p>
+          </div>
+          <div class="energy-metrics" data-energy-metrics></div>
+          <div class="energy-grid">
+            <section class="panel power-panel">
+              <div class="panel-title-row">
+                <div>
+                  <h3>多能源出力与负荷匹配</h3>
+                  <p>水电调峰、火电兜底、风光优先消纳、储能削峰填谷。</p>
+                </div>
+                <b class="chart-note">单位：MW</b>
+              </div>
+              <div id="powerStackChart" class="chart-box chart-large"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-title-row">
+                <div>
+                  <h3>能源结构占比</h3>
+                  <p>展示日内总发电量构成。</p>
+                </div>
+              </div>
+              <div id="energyPieChart" class="chart-box"></div>
+            </section>
+          </div>
+          <div class="energy-grid two">
+            <section class="panel">
+              <div class="panel-title-row">
+                <div>
+                  <h3>储能充放电状态</h3>
+                  <p>负值表示充电，正值表示放电。</p>
+                </div>
+              </div>
+              <div id="storageChart" class="chart-box"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-title-row">
+                <div>
+                  <h3>方案对比</h3>
+                  <p>常规调度、水网优先、多能协同三类方案。</p>
+                </div>
+              </div>
+              <div id="schemeCompareChart" class="chart-box"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-title-row">
+                <div>
+                  <h3>综合评分</h3>
+                  <p>越靠外表示表现越好。</p>
+                </div>
+              </div>
+              <div id="radarChart" class="chart-box"></div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section id="scenario-forecast" class="page-section">
+        <div class="container">
+          <div class="section-header">
+            <p class="kicker">Member 4 · Four-Pre Scenario</p>
+            <h2>四预典型场景推演</h2>
+            <p>枯水期、丰水期、极端天气 3 类场景按“预报、预警、预演、预案”组织展示。</p>
+          </div>
+          <div class="scenario-toolbar">
+            <div class="scenario-tabs" data-scenario-tabs></div>
+            <button class="primary-action" type="button" data-play>播放推演</button>
+          </div>
+          <div class="four-grid" data-four-pre></div>
+          <div class="scenario-visual panel" data-scenario-chart></div>
+          <div class="recommend-panel panel" data-recommend></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">智慧水网与水火风光储多能互补调度平台 · 整合优化版</footer>
+    <script type="module" src="./js/platform.js"></script>
+  </body>
+</html>
